@@ -1,22 +1,22 @@
-from flask import Flask, render_template
+from flask import Flask
 
 app = Flask(__name__)
 
 @app.route("/")
 def index() :
-    render_template("index.html")
+    return "index"
 
-@app.route("pending")
+@app.route("/pending")
 def pending() :
-    render_template("pending")
+    return "Pending"
 
-@app.route("confirm")
+@app.route("/confirm")
 def confirm() :
-    render_template("confirm.html")
+    return "Confirm"
 
-@app.route("reject")
+@app.route("/reject")
 def reject() :
-    render_template("reject.html")
+    return "Reject"
 
 if __name__ == "__main__":
     app.run("0.0.0.0", 5000)
