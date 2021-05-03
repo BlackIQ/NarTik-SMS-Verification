@@ -28,6 +28,10 @@ def send(secret, phone, kind) :
                 'message' : "کاربر گرامی، شما در صف تایید قرار گرفته اید."
             }
             response = api.sms_send(params)
+        else:
+            pass
+    else:
+        pass
 
 @app.route("/")
 def index() :
