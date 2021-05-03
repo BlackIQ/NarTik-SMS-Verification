@@ -4,9 +4,10 @@ from kavenegar import *
 app = Flask(__name__)
 
 api = KavenegarAPI('')
+secret = ""
 
-def send(secret, phone, kind) :
-    if secret == "" :
+def send(code, phone, kind) :
+    if code == secret :
         if kind == "confirm" :
             params = {
                 'sender' : '1000596446',
