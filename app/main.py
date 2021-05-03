@@ -35,24 +35,24 @@ def index() :
 
 @app.route("/pending", methods = ["GET", "POST"])
 def pending() :
+    secret = request.args['secret']
     phone = request.args['phone']
-    params = { 'sender' : '1000596446', 'receptor': phone, 'message' :"Flask Test !" }
-    response = api.sms_send( params)
+    send(secret, phone, "pending")
     return redirect("/")
 
 @app.route("/confirm", methods=["GET", "POST"])
 def confirm() :
+    secret = request.args['secret']
     phone = request.args['phone']
-    params = { 'sender' : '1000596446', 'receptor': phone, 'message' :"Flask Test !" }
-    response = api.sms_send( params)
+    send(secret, phone, "pending")
     return redirect("/")
 
 @app.route("/reject", methods=["GET", "POST"])
 def reject() :
+    secret = request.args['secret']
     phone = request.args['phone']
-    params = { 'sender' : '1000596446', 'receptor': phone, 'message' :"Flask Test !" }
-    response = api.sms_send( params)
+    send(secret, phone, "pending")
     return redirect("/")
 
 if __name__ == "__main__":
-    app.run("0.0.0.0", 5000)
+    app.run()
