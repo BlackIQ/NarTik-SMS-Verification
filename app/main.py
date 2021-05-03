@@ -5,6 +5,30 @@ app = Flask(__name__)
 
 api = KavenegarAPI('')
 
+def send(secret, phone, kind) :
+    if secret == "" :
+        if kind == "confirm" :
+            params = {
+                'sender' : '1000596446',
+                'receptor' : phone,
+                'message' : "کاربر گرامی، شما در نارتیک تایید شده اید."
+            }
+            response = api.sms_send(params)
+        elif kind == "reject" :
+            params = {
+                'sender' : '1000596446',
+                'receptor' : phone,
+                'message' : "کاربر گرامی، درخواست شما در سامانه نارتیک قبول نشد."
+            }
+            response = api.sms_send(params)
+        elif kind == "pending" :
+            params = {
+                'sender' : '1000596446',
+                'receptor' : phone,
+                'message' : "کاربر گرامی، شما در صف تایید قرار گرفته اید."
+            }
+            response = api.sms_send(params)
+
 @app.route("/")
 def index() :
     return "index"
