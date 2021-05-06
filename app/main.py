@@ -44,92 +44,22 @@ def send(code, phone, kind) :
             }
             response = api.sms_send(params)
         else:
-            pass
+            return "<p>Kind is not found</p>"
     else:
-        pass
+        return "<p>Secret is not true</p>"
 
-@app.route("/", methods = ["GET", "POST"])
-def index() :
-    if request.args["kind"] != None:
-        if request.args["phone"] != None:
-            if request.args["secret"] != None:
+@app.route("/send", methods = ["GET", "POST"])
+def index():
+    if "kind" in request.args:
+        if "phone" in request.args:
+            if "secret" in request.args:
                 send(request.args["secret"], request.args["kind"], request.args["phone"])
             else:
-                return redirect("/")
+                return "<p>Secret is not</p>"
         else:
-            return redirect("/")
+            return "<p>Phone is not</p>"
     else:
-        return redirect("/")
-
-@app.route("/pending", methods = ["GET", "POST"])
-def pending() :
-    if request.args['secret'] != None:
-        if request.args['phone'] != None:
-            secret = request.args['secret']
-            phone = request.args['phone']
-            
-            send(secret, phone, "pending")
-            return redirect("/")
-        else:
-            return redirect("/")
-    else:
-        return redirect("/")
-
-@app.route("/confirm", methods=["GET", "POST"])
-def confirm() :
-    if request.args['secret'] != None:
-        if request.args['phone'] != None:
-            secret = request.args['secret']
-            phone = request.args['phone']
-            
-            send(secret, phone, "confirm")
-            return redirect("/")
-        else:
-            return redirect("/")
-    else:
-        return redirect("/")
-
-@app.route("/reject", methods=["GET", "POST"])
-def reject() :
-    if request.args['secret'] != None:
-        if request.args['phone'] != None:
-            secret = request.args['secret']
-            phone = request.args['phone']
-            
-            send(secret, phone, "reject")
-            return redirect("/")
-        else:
-            return redirect("/")
-    else:
-        return redirect("/")
-
-@app.route("/sent", methods=["GET", "POST"])
-def reject():
-    if request.args['secret'] != None:
-        if request.args['phone'] != None:
-            secret = request.args['secret']
-            phone = request.args['phone']
-
-            send(secret, phone, "sent")
-            return redirect("/")
-        else:
-            return redirect("/")
-    else:
-        return redirect("/")
-
-@app.route("/answered", methods=["GET", "POST"])
-def reject():
-    if request.args['secret'] != None:
-        if request.args['phone'] != None:
-            secret = request.args['secret']
-            phone = request.args['phone']
-
-            send(secret, phone, "answered")
-            return redirect("/")
-        else:
-            return redirect("/")
-    else:
-        return redirect("/")
+        return "<p>Kind is not</p>"
 
 if __name__ == "__main__":
     app.run()
