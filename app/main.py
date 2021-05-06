@@ -80,5 +80,19 @@ def reject() :
     else:
         return redirect("/")
 
+@app.route("/sent", methods=["GET", "POST"])
+def reject():
+    if request.args['secret'] != None:
+        if request.args['phone'] != None:
+            secret = request.args['secret']
+            phone = request.args['phone']
+
+            send(secret, phone, "sent")
+            return redirect("/")
+        else:
+            return redirect("/")
+    else:
+        return redirect("/")
+
 if __name__ == "__main__":
     app.run()
