@@ -48,9 +48,18 @@ def send(code, phone, kind) :
     else:
         pass
 
-@app.route("/")
+@app.route("/", methods = ["GET", "POST"])
 def index() :
-    return "index"
+    if request.args["kind"] != None:
+        if request.args["phone"] != None:
+            if request.args["secret"] != None:
+                send(request.args["secret"], request.args["kind"], request.args["phone"])
+            else:
+                return redirect("/")
+        else:
+            return redirect("/")
+    else:
+        return redirect("/")
 
 @app.route("/pending", methods = ["GET", "POST"])
 def pending() :
