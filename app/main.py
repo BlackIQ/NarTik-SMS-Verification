@@ -36,6 +36,13 @@ def send(code, phone, kind) :
                 'message' : "کاربر گرامی، تیکت شما با موفقیت ارسال شد."
             }
             response = api.sms_send(params)
+        elif kind == "answered" :
+            params = {
+                'sender' : '1000596446',
+                'receptor' : phone,
+                'message' : "کاربر گرامی، به تیکت شما پاسخ داده شده است."
+            }
+            response = api.sms_send(params)
         else:
             pass
     else:
