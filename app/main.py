@@ -49,7 +49,7 @@ def send(code, phone, kind) :
         return "<p>Secret is not true</p>"
 
 @app.route("/send", methods = ["GET", "POST"])
-def index():
+def send():
     if "kind" in request.args:
         if "phone" in request.args:
             if "secret" in request.args:
