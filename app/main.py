@@ -53,7 +53,7 @@ def index():
     if "kind" in request.args:
         if "phone" in request.args:
             if "secret" in request.args:
-                send(request.args["secret"], request.args["kind"], request.args["phone"])
+                send(request.args["secret"], request.args["phone"], request.args["kind"])
             else:
                 return "<p>Secret is not</p>"
         else:
