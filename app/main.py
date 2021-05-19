@@ -4,7 +4,6 @@ from kavenegar import *
 app = Flask(__name__)
 
 api = KavenegarAPI('')
-<<<<<<< HEAD
 secret = ""
 
 def send(code, phone, kind) :
@@ -61,7 +60,7 @@ def send():
             return "<p>Phone is not</p>"
     else:
         return "<p>Kind is not</p>"
-=======
+        
 
 @app.route("/confirm", methods = ["GET", "POST"])
 def confirm():
@@ -137,7 +136,6 @@ def answered():
         response = api.sms_send(params)
 
         return redirect("http://office.narbon.ir:4488/NarFirm/admin")
->>>>>>> cb2483f8f118c7479ab185898e912afa1cae8d6d
 
 if __name__ == "__main__":
     app.run()
