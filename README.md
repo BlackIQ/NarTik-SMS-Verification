@@ -1,6 +1,6 @@
 # NarTik-SMS-Verification
 
-NarTik SMS Verification
+NarTik SMS Verification is a service to send SMS to user when something happens in site
 
 ---
 
@@ -14,4 +14,14 @@ NarTik SMS Verification
 
 ---
 
-This project is for Narbon company
+This project is for NarTik project
+
+#### About NarTik
+
+NarTik is a user manager for all companies.
+
+Every company can use this.
+
+---
+
+> NarTik is **On Working**
